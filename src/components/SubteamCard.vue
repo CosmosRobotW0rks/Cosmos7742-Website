@@ -8,6 +8,7 @@
     <div class="card-content">
       <h3 class="card-title">{{ title }}</h3>
       <p class="card-description">{{ description }}</p>
+      <button class="card-btn">get started</button>
     </div>
   </div>
 </template>
@@ -133,6 +134,26 @@ defineProps({
   line-height: 1.6;
   text-align: center;
   margin: 0;
+}
+
+.card-btn {
+  align-self: center;
+  padding: 0.7rem 1.5rem;
+  background: transparent;
+  border: 2px solid #ff4444;
+  color: #ff4444;
+  border-radius: 25px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: lowercase;
+  margin-top: 0.5rem;
+}
+
+.card-btn:hover {
+  background: #ff4444;
+  color: #0a0a14;
+  transform: scale(1.05);
 }
 </style>
 

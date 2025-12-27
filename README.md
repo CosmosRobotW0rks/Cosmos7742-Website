@@ -1,6 +1,6 @@
 # Cosmos Robot Works Website
 
-Official website for Cosmos Robot Works (Team 7742) - Nakkastpe Bahcesehir High School for Science and Technology.
+Official website for Cosmos Robot Works (Team 7742) - Nakkaştepe Bahçeşehir High School for Science and Technology.
 
 ## Features
 

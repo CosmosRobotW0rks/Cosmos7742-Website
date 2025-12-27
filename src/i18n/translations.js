@@ -10,7 +10,7 @@ export const translations = {
       contact: 'Reach Us'
     },
     hero: {
-      subtitle: 'Nakkastpe Bahcesehir High School for Science and Technology',
+      subtitle: 'Nakkastepe Bahçeşehir High School for Science and Technology',
       cta: 'Explore Our Journey'
     },
     about: {
@@ -103,7 +103,7 @@ export const translations = {
       contact: 'İletişim'
     },
     hero: {
-      subtitle: 'Nakkastpe Bahçeşehir Fen ve Teknoloji Lisesi',
+      subtitle: 'Nakkaştepe Bahçeşehir Fen ve Teknoloji Lisesi',
       cta: 'Yolculuğumuzu Keşfedin'
     },
     about: {
