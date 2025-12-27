@@ -25,7 +25,7 @@ import SeasonCard from '../SeasonCard.vue'
 
 const { t } = useI18n()
 import season1Image from '@/assets/images/AAA/2024-2025-Reefscape.jpg'
-import season2Image from '@/assets/images/AAA/TEAM24_KICKOFF.jpg'
+import season2Image from '@/assets/images/AAA/TEAM24.jpg'
 import season3Image from '@/assets/images/AAA/31db1185-8299-4935-91b0-1e0d7d089717-1.jpg'
 import season4Image from '@/assets/images/AAA/FRC2021-2022.png'
 
