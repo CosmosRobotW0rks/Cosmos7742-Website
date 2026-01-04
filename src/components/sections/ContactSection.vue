@@ -17,19 +17,17 @@
             <span class="contact-icon">✉️</span>
             <span>cosmos7742@gmail.com</span>
           </a>
+          </div>
+          <div>
           <div class="contact-item">
             <span class="contact-icon">📍</span>
-            <span>Altunizade, Oymacı Sk. No:15, 34662 Üsküdar/İstanbul</span>
+            <span>Altunizade, Oymacı Sk. No:15, 34662 Üsküdar/İstanbul</span>n
           </div>
         </div>
       </div>
     </div>
   </section>
 </template>
-
-<script setup>
-  import instagramImage from '@/assets/images/AAA/'
-</script>
 
 <style scoped>
 .contact {
