@@ -7,6 +7,7 @@ export const translations = {
       sponsors: 'Our Sponsors',
       subteams: 'Subteams',
       archive: 'Team Archive',
+      magazines: 'Magazines',
       contact: 'Reach Us'
     },
     hero: {
@@ -81,6 +82,30 @@ export const translations = {
       title: 'Team Archive',
       comingSoon: 'Coming soon'
     },
+    magazines: {
+      title: 'Magazines',
+      subtitle: 'Explore our publications and resources. Read our magazines and guides to learn more about our work and initiatives.',
+      read: 'Read Magazine',
+      magazines: {
+        fllMentoring: {
+          title: 'FLL Mentoring Booklet',
+          description: 'A comprehensive guide for FIRST LEGO League mentoring, covering best practices and strategies for effective team support.'
+        },
+        prPlaybook: {
+          title: 'PR Playbook FRC Edition',
+          description: 'A complete public relations guide for FRC teams, featuring strategies for outreach, communication, and community engagement.'
+        }
+      },
+      previous: 'Previous',
+      next: 'Next',
+      page: 'Page',
+      zoomIn: 'Zoom In',
+      zoomOut: 'Zoom Out',
+      download: 'Download',
+      loading: 'Loading PDF...',
+      error: 'Failed to load PDF. Please try again later.',
+      openInNewTab: 'Open in New Tab'
+    },
     contact: {
       title: 'Reach Us',
       subtitle: 'We welcome your questions, ideas, and collaborations. Get in touch with us — whether you\'re a student, teacher, or supporter.'
@@ -100,6 +125,7 @@ export const translations = {
       sponsors: 'Sponsorlarımız',
       subteams: 'Alt Ekipler',
       archive: 'Takım Arşivi',
+      magazines: 'Dergiler',
       contact: 'İletişim'
     },
     hero: {
@@ -173,6 +199,30 @@ export const translations = {
     archive: {
       title: 'Takım Arşivi',
       comingSoon: 'Yakında'
+    },
+    magazines: {
+      title: 'Dergiler',
+      subtitle: 'Yayınlarımızı ve kaynaklarımızı keşfedin. Çalışmalarımız ve girişimlerimiz hakkında daha fazla bilgi edinmek için dergilerimizi okuyun.',
+      read: 'Dergiyi Oku',
+      magazines: {
+        fllMentoring: {
+          title: 'FLL Mentorluk Kitapçığı',
+          description: 'FIRST LEGO League mentorluğu için kapsamlı bir rehber, etkili takım desteği için en iyi uygulamalar ve stratejiler içerir.'
+        },
+        prPlaybook: {
+          title: 'Hİ Oyun Kitabı FRC Baskısı',
+          description: 'FRC takımları için eksiksiz bir halkla ilişkiler rehberi, tanıtım, iletişim ve topluluk katılımı stratejileri içerir.'
+        }
+      },
+      previous: 'Önceki',
+      next: 'Sonraki',
+      page: 'Sayfa',
+      zoomIn: 'Yakınlaştır',
+      zoomOut: 'Uzaklaştır',
+      download: 'İndir',
+      loading: 'PDF yükleniyor...',
+      error: 'PDF yüklenemedi. Lütfen daha sonra tekrar deneyin.',
+      openInNewTab: 'Yeni Sekmede Aç'
     },
     contact: {
       title: 'İletişim',

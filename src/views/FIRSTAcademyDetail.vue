@@ -31,9 +31,16 @@ const goBack = () => {
     setTimeout(() => {
       const workSection = document.getElementById('work')
       if (workSection) {
-        workSection.scrollIntoView({ behavior: 'smooth' })
+        const navHeight = 80 // Approximate navigation bar height
+        const elementPosition = workSection.getBoundingClientRect().top + window.pageYOffset
+        const offsetPosition = elementPosition - navHeight
+        
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        })
       }
-    }, 100)
+    }, 150)
   })
 }
 </script>
