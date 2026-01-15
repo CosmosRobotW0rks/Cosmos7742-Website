@@ -17,10 +17,10 @@
         <li><a href="#home" @click="scrollTo('home')">{{ t.nav.home }}</a></li>
         <li><a href="#about" @click="scrollTo('about')">{{ t.nav.about }}</a></li>
         <li><a href="#work" @click="scrollTo('work')">{{ t.nav.work }}</a></li>
+        <li><a href="#magazines" @click="scrollTo('magazines')">{{ t.nav.magazines }}</a></li>
         <li><a href="#sponsors" @click="scrollTo('sponsors')">{{ t.nav.sponsors }}</a></li>
         <li><a href="#subteams" @click="scrollTo('subteams')">{{ t.nav.subteams }}</a></li>
         <li><a href="#archive" @click="scrollTo('archive')">{{ t.nav.archive }}</a></li>
-        <li><a href="#magazines" @click="scrollTo('magazines')">{{ t.nav.magazines }}</a></li>
         <li><a href="#contact" @click="scrollTo('contact')">{{ t.nav.contact }}</a></li>
         <li class="lang-toggle">
           <button @click="toggleLang" class="lang-btn" :title="currentLang === 'en' ? 'Türkçe\'ye geç' : 'Switch to English'">

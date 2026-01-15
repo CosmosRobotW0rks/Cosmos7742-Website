@@ -11,6 +11,12 @@
           <p>
             {{ t.work.projects.firstAcademy.detail }}
           </p>
+          <p class="project-link">
+            {{ t.work.projects.firstAcademy.linkText }} 
+            <a :href="t.work.projects.firstAcademy.link" target="_blank" class="external-link">
+              {{ t.work.projects.firstAcademy.link }}
+            </a>
+          </p>
         </div>
       </div>
     </div>
@@ -117,6 +123,24 @@ const goBack = () => {
 
 .detail-text p {
   margin: 0;
+}
+
+.project-link {
+  margin-top: 1.5rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid rgba(255, 68, 68, 0.2);
+}
+
+.external-link {
+  color: #ff4444;
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.external-link:hover {
+  color: #ff6666;
+  text-decoration: underline;
 }
 
 @media (max-width: 768px) {

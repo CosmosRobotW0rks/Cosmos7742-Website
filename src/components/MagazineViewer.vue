@@ -3,28 +3,15 @@
     <div class="viewer-header">
       <h3 class="magazine-title">{{ title }}</h3>
       <div class="viewer-controls">
-        <button @click="previousPage" :disabled="pageNumber <= 1" class="control-btn">
-          ← {{ t.magazines.previous }}
-        </button>
-        <span class="page-info">
-          {{ t.magazines.page }} {{ pageNumber }}{{ totalPages > 1 ? ' / ' + totalPages : '' }}
-        </span>
-        <button @click="nextPage" class="control-btn">
-          {{ t.magazines.next }} →
-        </button>
-        <button @click="zoomOut" class="control-btn" :disabled="scale <= 0.5">
-          {{ t.magazines.zoomOut }}
-        </button>
-        <span class="zoom-info">{{ Math.round(scale * 100) }}%</span>
-        <button @click="zoomIn" class="control-btn" :disabled="scale >= 2">
-          {{ t.magazines.zoomIn }}
-        </button>
         <a :href="pdfUrl" :download="title + '.pdf'" class="control-btn download-btn">
           {{ t.magazines.download }}
         </a>
       </div>
     </div>
     <div class="pdf-container" ref="pdfContainer">
+      <div class="page-indicator" v-if="props.totalPages > 1">
+        {{ props.totalPages }} {{ t.magazines.pages }}
+      </div>
       <iframe
         :src="iframeSrc"
         class="pdf-iframe"
@@ -45,7 +32,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, onUnmounted, watch, computed } from 'vue'
+import { ref, computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
 
 const props = defineProps({
@@ -56,13 +43,14 @@ const props = defineProps({
   title: {
     type: String,
     required: true
+  },
+  totalPages: {
+    type: Number,
+    default: 1
   }
 })
 
 const { t } = useI18n()
-const pageNumber = ref(1)
-const totalPages = ref(1000) // Large number to allow free navigation
-const scale = ref(1)
 const loading = ref(true)
 const error = ref(false)
 const pdfContainer = ref(null)
@@ -71,11 +59,10 @@ const iframeSrc = computed(() => {
   const baseUrl = props.pdfUrl.startsWith('http') 
     ? props.pdfUrl 
     : `${window.location.origin}${props.pdfUrl.startsWith('/') ? '' : '/'}${props.pdfUrl}`
-  return `${baseUrl}#page=${pageNumber.value}&zoom=${Math.round(scale.value * 100)}&toolbar=0&navpanes=0&scrollbar=0`
+  return `${baseUrl}#toolbar=0&navpanes=0&scrollbar=0`
 })
 
 const onPdfLoaded = () => {
-  // Add a small delay to ensure PDF is actually loaded
   setTimeout(() => {
     loading.value = false
     error.value = false
@@ -86,60 +73,6 @@ const onLoadingFailed = () => {
   loading.value = false
   error.value = true
 }
-
-const nextPage = () => {
-  pageNumber.value++
-  scrollToTop()
-}
-
-const previousPage = () => {
-  if (pageNumber.value > 1) {
-    pageNumber.value--
-    scrollToTop()
-  }
-}
-
-const zoomIn = () => {
-  if (scale.value < 2) {
-    scale.value = Math.min(scale.value + 0.25, 2)
-  }
-}
-
-const zoomOut = () => {
-  if (scale.value > 0.5) {
-    scale.value = Math.max(scale.value - 0.25, 0.5)
-  }
-}
-
-// iframeSrc is computed, so it will update automatically
-
-const scrollToTop = () => {
-  if (pdfContainer.value) {
-    pdfContainer.value.scrollIntoView({ behavior: 'smooth', block: 'start' })
-  }
-}
-
-const handleKeyPress = (e) => {
-  if (e.key === 'ArrowLeft') {
-    previousPage()
-  } else if (e.key === 'ArrowRight') {
-    nextPage()
-  }
-}
-
-onMounted(() => {
-  window.addEventListener('keydown', handleKeyPress)
-  // Set loading to false after a timeout in case load event doesn't fire
-  setTimeout(() => {
-    if (loading.value) {
-      loading.value = false
-    }
-  }, 3000)
-})
-
-onUnmounted(() => {
-  window.removeEventListener('keydown', handleKeyPress)
-})
 </script>
 
 <style scoped>
@@ -220,6 +153,7 @@ onUnmounted(() => {
 
 .pdf-container {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 600px;
@@ -227,6 +161,21 @@ onUnmounted(() => {
   border-radius: 8px;
   padding: 2rem;
   overflow: hidden;
+  position: relative;
+}
+
+.page-indicator {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.9);
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  z-index: 10;
+  backdrop-filter: blur(10px);
 }
 
 .pdf-iframe {

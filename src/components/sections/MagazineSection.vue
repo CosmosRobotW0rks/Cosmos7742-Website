@@ -5,19 +5,38 @@
       <p class="section-subtitle">
         {{ t.magazines.subtitle }}
       </p>
-      <div class="magazines-grid">
+      
+      <!-- Category Selection -->
+      <div class="categories-grid">
         <div
-          v-for="magazine in magazines"
+          class="category-card"
+          :class="{ active: selectedCategory === 'mentoring' }"
+          @click="selectCategory('mentoring')"
+        >
+          <h3 class="category-title">{{ t.magazines.categories.mentoring }}</h3>
+        </div>
+        <div
+          class="category-card"
+          :class="{ active: selectedCategory === 'sdg' }"
+          @click="selectCategory('sdg')"
+        >
+          <h3 class="category-title">{{ t.magazines.categories.sdg }}</h3>
+        </div>
+      </div>
+
+      <!-- Mentoring Category Content -->
+      <div v-if="selectedCategory === 'mentoring'" class="magazines-grid">
+        <div
+          v-for="magazine in mentoringMagazines"
           :key="magazine.id"
           class="magazine-card"
           @click="selectMagazine(magazine)"
         >
           <div class="magazine-image">
             <iframe
-              :src="magazine.pdfUrl + '#page=1&zoom=75&toolbar=0&navpanes=0&scrollbar=0'"
+              :src="getPdfCoverUrl(magazine.pdfUrl)"
               class="magazine-cover"
               frameborder="0"
-              loading="lazy"
             ></iframe>
             <div class="magazine-overlay">
               <div class="magazine-icon">📖</div>
@@ -30,6 +49,11 @@
           </div>
         </div>
       </div>
+
+      <!-- SDG Category Content -->
+      <div v-if="selectedCategory === 'sdg'" class="coming-soon">
+        <h3 class="coming-soon-text">{{ t.magazines.comingSoon }}</h3>
+      </div>
     </div>
 
     <!-- Magazine Viewer Modal -->
@@ -39,6 +63,7 @@
         <MagazineViewer
           :pdf-url="selectedMagazine.pdfUrl"
           :title="selectedMagazine.title"
+          :total-pages="selectedMagazine.totalPages"
         />
       </div>
     </div>
@@ -52,21 +77,36 @@ import MagazineViewer from '../MagazineViewer.vue'
 
 const { t } = useI18n()
 const selectedMagazine = ref(null)
+const selectedCategory = ref('mentoring')
 
-const magazines = computed(() => [
+const mentoringMagazines = computed(() => [
   {
     id: 1,
     title: t.value.magazines.magazines.fllMentoring.title,
     description: t.value.magazines.magazines.fllMentoring.description,
-    pdfUrl: '/pdf/Fll Mentoring Booklet.pdf'
+    pdfUrl: '/pdf/Fll Mentoring Booklet.pdf',
+    totalPages: 12
   },
   {
     id: 2,
     title: t.value.magazines.magazines.prPlaybook.title,
     description: t.value.magazines.magazines.prPlaybook.description,
-    pdfUrl: '/pdf/PR Playbook FRC Edition TR.pdf'
+    pdfUrl: '/pdf/PR Playbook FRC Edition TR.pdf',
+    totalPages: 8
   }
 ])
+
+const selectCategory = (category) => {
+  selectedCategory.value = category
+  selectedMagazine.value = null
+}
+
+const getPdfCoverUrl = (pdfUrl) => {
+  const baseUrl = pdfUrl.startsWith('http') 
+    ? pdfUrl 
+    : `${window.location.origin}${pdfUrl.startsWith('/') ? '' : '/'}${pdfUrl}`
+  return `${baseUrl}#page=1&zoom=page-fit&toolbar=0&navpanes=0&scrollbar=0`
+}
 
 const selectMagazine = (magazine) => {
   selectedMagazine.value = magazine
@@ -111,6 +151,63 @@ const closeModal = () => {
   margin-right: auto;
 }
 
+.categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.category-card {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 68, 68, 0.2);
+  text-align: center;
+}
+
+.category-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(255, 68, 68, 0.2);
+  border-color: rgba(255, 68, 68, 0.4);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.category-card.active {
+  background: rgba(255, 68, 68, 0.15);
+  border-color: #ff4444;
+  box-shadow: 0 8px 30px rgba(255, 68, 68, 0.3);
+}
+
+.category-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 1.5rem;
+  color: #ff4444;
+  margin: 0;
+}
+
+.category-card.active .category-title {
+  color: #ffffff;
+}
+
+.coming-soon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 400px;
+  margin-top: 3rem;
+}
+
+.coming-soon-text {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  color: rgba(255, 255, 255, 0.6);
+  margin: 0;
+  text-align: center;
+}
+
 .magazines-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -145,6 +242,17 @@ const closeModal = () => {
   overflow: hidden;
   background: linear-gradient(135deg, rgba(255, 68, 68, 0.2) 0%, rgba(255, 68, 68, 0.05) 100%);
   box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+.magazine-cover {
+  width: 100%;
+  height: 100%;
+  border: none;
+  object-fit: cover;
+  pointer-events: none;
+  transform: scale(1.1);
+  transform-origin: center;
+  position: relative;
 }
 
 .magazine-cover {
@@ -292,8 +400,16 @@ const closeModal = () => {
     padding: 60px 0;
   }
 
+  .categories-grid {
+    grid-template-columns: 1fr;
+  }
+
   .magazines-grid {
     grid-template-columns: 1fr;
+  }
+
+  .coming-soon-text {
+    font-size: clamp(2rem, 8vw, 3rem);
   }
 
   .modal-content {

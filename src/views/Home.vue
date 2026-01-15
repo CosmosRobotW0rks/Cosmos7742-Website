@@ -3,10 +3,10 @@
     <HeroSection id="home" />
     <AboutSection id="about" />
     <WorkSection id="work" />
+    <MagazineSection id="magazines" />
     <SponsorsSection id="sponsors" />
     <SubteamsSection id="subteams" />
     <ArchiveSection id="archive" />
-    <MagazineSection id="magazines" />
     <ContactSection id="contact" />
   </div>
 </template>

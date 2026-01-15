@@ -40,7 +40,9 @@ export const translations = {
         firstAcademy: {
           title: 'FIRST ACADEMY',
           description: 'FIRST Academy is a pioneering initiative in Turkey dedicated to supporting the FIRST Robotics Competition (FRC) community. Through our…',
-          detail: 'FIRST Academy is a pioneering initiative in Turkey dedicated to supporting the FIRST Robotics Competition (FRC) community. Through our activities, the program focuses on sharing technical knowledge, mentoring teams, and strengthening collaboration within the FRC ecosystem. FIRST Academy aims to make robotics education more accessible by supporting both experienced and newly established teams and encouraging students to grow not only technically but also in leadership and teamwork.'
+          detail: 'FIRST Academy is a pioneering initiative in Turkey dedicated to supporting the FIRST Robotics Competition (FRC) community. Through our activities, the program focuses on sharing technical knowledge, mentoring teams, and strengthening collaboration within the FRC ecosystem. FIRST Academy aims to make robotics education more accessible by supporting both experienced and newly established teams and encouraging students to grow not only technically but also in leadership and teamwork.',
+          linkText: 'Click here to see our project:',
+          link: 'https://firstacademy.io'
         },
         oceanHeroes: {
           title: 'Ocean Heroes',
@@ -86,6 +88,11 @@ export const translations = {
       title: 'Magazines',
       subtitle: 'Explore our publications and resources. Read our magazines and guides to learn more about our work and initiatives.',
       read: 'Read Magazine',
+      categories: {
+        mentoring: 'Mentoring',
+        sdg: 'Sustainable Development Goals'
+      },
+      comingSoon: 'Coming Soon',
       magazines: {
         fllMentoring: {
           title: 'FLL Mentoring Booklet',
@@ -99,6 +106,7 @@ export const translations = {
       previous: 'Previous',
       next: 'Next',
       page: 'Page',
+      pages: 'pages',
       zoomIn: 'Zoom In',
       zoomOut: 'Zoom Out',
       download: 'Download',
@@ -115,6 +123,11 @@ export const translations = {
     },
     common: {
       back: '← Back'
+    },
+    banner: {
+      text: '🚀 Check out our site for the full FIRST Academy experience! 🌐✨',
+      linkText: 'firstacademy.io',
+      link: 'https://firstacademy.io'
     }
   },
   tr: {
@@ -158,7 +171,9 @@ export const translations = {
         firstAcademy: {
           title: 'FIRST AKADEMİ',
           description: 'FIRST Akademi, FIRST Robotics Competition (FRC) topluluğunu desteklemeye adanmış Türkiye\'de öncü bir girişimdir. Bizim…',
-          detail: 'FIRST Akademi, FIRST Robotics Competition (FRC) topluluğunu desteklemeye adanmış Türkiye\'de öncü bir girişimdir. Etkinliklerimiz aracılığıyla, program teknik bilgi paylaşımına, takımlara mentorluk yapmaya ve FRC ekosistemi içindeki işbirliğini güçlendirmeye odaklanır. FIRST Akademi, hem deneyimli hem de yeni kurulmuş takımları destekleyerek ve öğrencilerin sadece teknik olarak değil, aynı zamanda liderlik ve takım çalışmasında da gelişmelerini teşvik ederek robotik eğitimini daha erişilebilir hale getirmeyi amaçlar.'
+          detail: 'FIRST Akademi, FIRST Robotics Competition (FRC) topluluğunu desteklemeye adanmış Türkiye\'de öncü bir girişimdir. Etkinliklerimiz aracılığıyla, program teknik bilgi paylaşımına, takımlara mentorluk yapmaya ve FRC ekosistemi içindeki işbirliğini güçlendirmeye odaklanır. FIRST Akademi, hem deneyimli hem de yeni kurulmuş takımları destekleyerek ve öğrencilerin sadece teknik olarak değil, aynı zamanda liderlik ve takım çalışmasında da gelişmelerini teşvik ederek robotik eğitimini daha erişilebilir hale getirmeyi amaçlar.',
+          linkText: 'Projemizi görmek için buraya tıklayın:',
+          link: 'https://firstacademy.io'
         },
         oceanHeroes: {
           title: 'Okyanus Kahramanları',
@@ -204,6 +219,11 @@ export const translations = {
       title: 'Dergiler',
       subtitle: 'Yayınlarımızı ve kaynaklarımızı keşfedin. Çalışmalarımız ve girişimlerimiz hakkında daha fazla bilgi edinmek için dergilerimizi okuyun.',
       read: 'Dergiyi Oku',
+      categories: {
+        mentoring: 'Mentörlük',
+        sdg: 'Sürdürülebilir Kalkınma Hedefleri'
+      },
+      comingSoon: 'Yakında',
       magazines: {
         fllMentoring: {
           title: 'FLL Mentorluk Kitapçığı',
@@ -217,6 +237,7 @@ export const translations = {
       previous: 'Önceki',
       next: 'Sonraki',
       page: 'Sayfa',
+      pages: 'sayfa',
       zoomIn: 'Yakınlaştır',
       zoomOut: 'Uzaklaştır',
       download: 'İndir',
@@ -233,6 +254,11 @@ export const translations = {
     },
     common: {
       back: '← Geri'
+    },
+    banner: {
+      text: '🚀 Check out our site for the full FIRST Academy experience! 🌐✨',
+      linkText: 'firstacademy.io',
+      link: 'https://firstacademy.io'
     }
   }
 }
