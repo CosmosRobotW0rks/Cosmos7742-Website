@@ -30,7 +30,6 @@
           v-for="magazine in mentoringMagazines"
           :key="magazine.id"
           class="magazine-card"
-          @click="selectMagazine(magazine)"
         >
           <div class="magazine-image">
             <iframe
@@ -45,7 +44,15 @@
           <div class="magazine-info">
             <h3 class="magazine-name">{{ magazine.title }}</h3>
             <p class="magazine-description">{{ magazine.description }}</p>
-            <button class="read-btn">{{ t.magazines.read }}</button>
+            <a 
+              :href="magazine.pdfUrl" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              class="read-btn"
+              @click.stop
+            >
+              {{ t.magazines.read }}
+            </a>
           </div>
         </div>
       </div>
@@ -55,28 +62,14 @@
         <h3 class="coming-soon-text">{{ t.magazines.comingSoon }}</h3>
       </div>
     </div>
-
-    <!-- Magazine Viewer Modal -->
-    <div v-if="selectedMagazine" class="modal-overlay" @click="closeModal">
-      <div class="modal-content" @click.stop>
-        <button class="close-btn" @click="closeModal">×</button>
-        <MagazineViewer
-          :pdf-url="selectedMagazine.pdfUrl"
-          :title="selectedMagazine.title"
-          :total-pages="selectedMagazine.totalPages"
-        />
-      </div>
-    </div>
   </section>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
-import MagazineViewer from '../MagazineViewer.vue'
 
 const { t } = useI18n()
-const selectedMagazine = ref(null)
 const selectedCategory = ref('mentoring')
 
 const mentoringMagazines = computed(() => [
@@ -98,7 +91,6 @@ const mentoringMagazines = computed(() => [
 
 const selectCategory = (category) => {
   selectedCategory.value = category
-  selectedMagazine.value = null
 }
 
 const getPdfCoverUrl = (pdfUrl) => {
@@ -106,16 +98,6 @@ const getPdfCoverUrl = (pdfUrl) => {
     ? pdfUrl 
     : `${window.location.origin}${pdfUrl.startsWith('/') ? '' : '/'}${pdfUrl}`
   return `${baseUrl}#page=1&zoom=page-fit&toolbar=0&navpanes=0&scrollbar=0`
-}
-
-const selectMagazine = (magazine) => {
-  selectedMagazine.value = magazine
-  document.body.style.overflow = 'hidden'
-}
-
-const closeModal = () => {
-  selectedMagazine.value = null
-  document.body.style.overflow = 'auto'
 }
 </script>
 
@@ -335,64 +317,14 @@ const closeModal = () => {
   transition: all 0.3s ease;
   align-self: flex-start;
   margin-top: auto;
+  text-decoration: none;
+  display: inline-block;
 }
 
 .read-btn:hover {
   background: rgba(255, 68, 68, 0.3);
   border-color: #ff4444;
   transform: translateY(-2px);
-}
-
-/* Modal Styles */
-.modal-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.95);
-  z-index: 2000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 2rem;
-  overflow-y: auto;
-}
-
-.modal-content {
-  position: relative;
-  max-width: 95%;
-  width: 100%;
-  max-height: 95vh;
-  overflow-y: auto;
-  background: #1a1a2e;
-  border-radius: 12px;
-  padding: 2rem;
-}
-
-.close-btn {
-  position: absolute;
-  top: 1rem;
-  right: 1rem;
-  background: rgba(255, 68, 68, 0.2);
-  border: 1px solid rgba(255, 68, 68, 0.4);
-  color: #ffffff;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s ease;
-  z-index: 10;
-}
-
-.close-btn:hover {
-  background: rgba(255, 68, 68, 0.4);
-  border-color: #ff4444;
-  transform: rotate(90deg);
 }
 
 @media (max-width: 768px) {
@@ -406,20 +338,6 @@ const closeModal = () => {
 
   .magazines-grid {
     grid-template-columns: 1fr;
-  }
-
-  .coming-soon-text {
-    font-size: clamp(2rem, 8vw, 3rem);
-  }
-
-  .modal-content {
-    padding: 1rem;
-    max-width: 100%;
-  }
-
-  .close-btn {
-    top: 0.5rem;
-    right: 0.5rem;
   }
 }
 </style>
