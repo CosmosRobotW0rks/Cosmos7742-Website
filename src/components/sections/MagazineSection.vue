@@ -24,18 +24,18 @@
         </div>
       </div>
 
-      <!-- Mentoring Category Content -->
-      <div v-if="selectedCategory === 'mentoring'" class="magazines-grid">
+      <!-- Magazine Grid -->
+      <div v-if="currentMagazines.length > 0" class="magazines-grid">
         <div
-          v-for="magazine in mentoringMagazines"
+          v-for="magazine in currentMagazines"
           :key="magazine.id"
           class="magazine-card"
         >
           <div class="magazine-image">
             <iframe
-              :src="getPdfCoverUrl(magazine.pdfUrl)"
+              :src="magazine.pdfUrl + '#page=1&zoom=75&toolbar=0&navpanes=0&scrollbar=0'"
               class="magazine-cover"
-              frameborder="0"
+              loading="lazy"
             ></iframe>
             <div class="magazine-overlay">
               <div class="magazine-icon">📖</div>
@@ -56,11 +56,6 @@
           </div>
         </div>
       </div>
-
-      <!-- SDG Category Content -->
-      <div v-if="selectedCategory === 'sdg'" class="coming-soon">
-        <h3 class="coming-soon-text">{{ t.magazines.comingSoon }}</h3>
-      </div>
     </div>
   </section>
 </template>
@@ -68,6 +63,21 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useI18n } from '@/composables/useI18n'
+
+// Import PDF files
+const sdgfllMentoringBooklet = 'https://docs.cosmos7742.com/Fll%20Mentoring%20Booklet.pdf'
+const sdgprPlaybook = 'https://docs.cosmos7742.com/PR%20Playbook%20FRC%20Edition%20TR.pdf'
+const sdgNoPoverty = 'https://docs.cosmos7742.com/CosmicScience-NoQuality.pdf'
+const sdgQualityEducation = 'https://docs.cosmos7742.com/CosmicScience-QualityEducation.pdf'
+const sdgGoodHealth = 'https://docs.cosmos7742.com/CosmicScience-GoodHealthAndWellBeing.pdf'
+const sdgGenderEquality = 'https://docs.cosmos7742.com/CosmicScience-GenderEquality.pdf'
+const sdgAffordableEnergy = 'https://docs.cosmos7742.com/CosmicScience-AffordableAndCleanEnergy.pdf'
+const sdgSustainableCities = 'https://docs.cosmos7742.com/CosmicScience-SustainableCitiesAndCommunities.pdf'
+const sdgLifeBelowWater = 'https://docs.cosmos7742.com/CosmicScience-LifeBelowWater.pdf'
+const sdgLifeOnLand = 'https://docs.cosmos7742.com/CosmicScience-LifeOnLand.pdf'
+const sdgZeroHunger = 'https://docs.cosmos7742.com/CosmicScience-ZeroHunger.pdf'
+const sdgDecentWork = 'https://docs.cosmos7742.com/CosmicScience-DecentWorkAndEconomicGrowth.pdf'
+const sdgIndustryInnovation = 'https://docs.cosmos7742.com/CosmicScience-IndustryInnovationAndInfrastructure.pdf'
 
 const { t } = useI18n()
 const selectedCategory = ref('mentoring')
@@ -77,27 +87,91 @@ const mentoringMagazines = computed(() => [
     id: 1,
     title: t.value.magazines.magazines.fllMentoring.title,
     description: t.value.magazines.magazines.fllMentoring.description,
-    pdfUrl: '/pdf/Fll Mentoring Booklet.pdf',
-    totalPages: 12
+    pdfUrl: sdgfllMentoringBooklet
   },
   {
     id: 2,
     title: t.value.magazines.magazines.prPlaybook.title,
     description: t.value.magazines.magazines.prPlaybook.description,
-    pdfUrl: '/pdf/PR Playbook FRC Edition TR.pdf',
-    totalPages: 8
+    pdfUrl: sdgprPlaybook
   }
 ])
 
+const sdgMagazines = computed(() => [
+  {
+    id: 3,
+    title: t.value.magazines.magazines.sdgNoPoverty.title,
+    description: t.value.magazines.magazines.sdgNoPoverty.description,
+    pdfUrl: sdgNoPoverty
+  },
+  {
+    id: 4,
+    title: t.value.magazines.magazines.sdgQualityEducation.title,
+    description: t.value.magazines.magazines.sdgQualityEducation.description,
+    pdfUrl: sdgQualityEducation
+  },
+  {
+    id: 5,
+    title: t.value.magazines.magazines.sdgGoodHealth.title,
+    description: t.value.magazines.magazines.sdgGoodHealth.description,
+    pdfUrl: sdgGoodHealth
+  },
+  {
+    id: 6,
+    title: t.value.magazines.magazines.sdgGenderEquality.title,
+    description: t.value.magazines.magazines.sdgGenderEquality.description,
+    pdfUrl: sdgGenderEquality
+  },
+  {
+    id: 7,
+    title: t.value.magazines.magazines.sdgAffordableEnergy.title,
+    description: t.value.magazines.magazines.sdgAffordableEnergy.description,
+    pdfUrl: sdgAffordableEnergy
+  },
+  {
+    id: 8,
+    title: t.value.magazines.magazines.sdgSustainableCities.title,
+    description: t.value.magazines.magazines.sdgSustainableCities.description,
+    pdfUrl: sdgSustainableCities
+  },
+  {
+    id: 9,
+    title: t.value.magazines.magazines.sdgLifeBelowWater.title,
+    description: t.value.magazines.magazines.sdgLifeBelowWater.description,
+    pdfUrl: sdgLifeBelowWater
+  },
+  {
+    id: 10,
+    title: t.value.magazines.magazines.sdgLifeOnLand.title,
+    description: t.value.magazines.magazines.sdgLifeOnLand.description,
+    pdfUrl: sdgLifeOnLand
+  },
+  {
+    id: 11,
+    title: t.value.magazines.magazines.sdgZeroHunger.title,
+    description: t.value.magazines.magazines.sdgZeroHunger.description,
+    pdfUrl: sdgZeroHunger
+  },
+  {
+    id: 12,
+    title: t.value.magazines.magazines.sdgDecentWork.title,
+    description: t.value.magazines.magazines.sdgDecentWork.description,
+    pdfUrl: sdgDecentWork
+  },
+  {
+    id: 13,
+    title: t.value.magazines.magazines.sdgIndustryInnovation.title,
+    description: t.value.magazines.magazines.sdgIndustryInnovation.description,
+    pdfUrl: sdgIndustryInnovation
+  }
+])
+
+const currentMagazines = computed(() => {
+  return selectedCategory.value === 'mentoring' ? mentoringMagazines.value : sdgMagazines.value
+})
+
 const selectCategory = (category) => {
   selectedCategory.value = category
-}
-
-const getPdfCoverUrl = (pdfUrl) => {
-  const baseUrl = pdfUrl.startsWith('http') 
-    ? pdfUrl 
-    : `${window.location.origin}${pdfUrl.startsWith('/') ? '' : '/'}${pdfUrl}`
-  return `${baseUrl}#page=1&zoom=page-fit&toolbar=0&navpanes=0&scrollbar=0`
 }
 </script>
 
@@ -174,22 +248,6 @@ const getPdfCoverUrl = (pdfUrl) => {
   color: #ffffff;
 }
 
-.coming-soon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  min-height: 400px;
-  margin-top: 3rem;
-}
-
-.coming-soon-text {
-  font-family: 'Orbitron', sans-serif;
-  font-size: clamp(2.5rem, 6vw, 4rem);
-  color: rgba(255, 255, 255, 0.6);
-  margin: 0;
-  text-align: center;
-}
-
 .magazines-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -230,36 +288,24 @@ const getPdfCoverUrl = (pdfUrl) => {
   width: 100%;
   height: 100%;
   border: none;
-  object-fit: cover;
-  pointer-events: none;
-  transform: scale(1.1);
-  transform-origin: center;
-  position: relative;
+  border-radius: 8px;
 }
 
-.magazine-cover {
+.magazine-placeholder {
   width: 100%;
   height: 100%;
-  border: none;
-  object-fit: cover;
-  pointer-events: none;
-  transform: scale(1.1);
-  transform-origin: center;
-  /* Hide PDF viewer toolbar using CSS */
-  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(255, 68, 68, 0.1) 0%, rgba(255, 68, 68, 0.05) 100%);
 }
 
-/* Attempt to hide PDF viewer UI elements */
-.magazine-cover::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  height: 40px;
-  background: transparent;
-  z-index: 1;
-  pointer-events: none;
+.magazine-preview-text {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+  font-weight: 500;
 }
 
 .magazine-overlay {
@@ -283,6 +329,12 @@ const getPdfCoverUrl = (pdfUrl) => {
 
 .magazine-icon {
   font-size: 3rem;
+  color: rgba(255, 68, 68, 0.6);
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.magazine-icon-large {
+  font-size: 4rem;
   color: #ffffff;
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
 }
@@ -338,6 +390,9 @@ const getPdfCoverUrl = (pdfUrl) => {
 
   .magazines-grid {
     grid-template-columns: 1fr;
+    right: 0.5rem;
   }
+
+
 }
 </style>

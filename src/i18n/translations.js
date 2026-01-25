@@ -101,6 +101,50 @@ export const translations = {
         prPlaybook: {
           title: 'PR Playbook FRC Edition',
           description: 'A complete public relations guide for FRC teams, featuring strategies for outreach, communication, and community engagement.'
+        },
+        sdgNoPoverty: {
+          title: 'No Poverty',
+          description: 'Exploring solutions and initiatives to end poverty in all its forms everywhere.'
+        },
+        sdgQualityEducation: {
+          title: 'Quality Education',
+          description: 'Ensuring inclusive and equitable quality education and promoting lifelong learning opportunities for all.'
+        },
+        sdgGoodHealth: {
+          title: 'Good Health and Well-being',
+          description: 'Promoting healthy lives and well-being for all at all ages through innovative solutions.'
+        },
+        sdgGenderEquality: {
+          title: 'Gender Equality',
+          description: 'Achieving gender equality and empowering all women and girls in STEM fields.'
+        },
+        sdgAffordableEnergy: {
+          title: 'Affordable and Clean Energy',
+          description: 'Ensuring access to affordable, reliable, sustainable and modern energy for all.'
+        },
+        sdgSustainableCities: {
+          title: 'Sustainable Cities and Communities',
+          description: 'Making cities and human settlements inclusive, safe, resilient and sustainable.'
+        },
+        sdgLifeBelowWater: {
+          title: 'Life Below Water',
+          description: 'Conserving and sustainably using the oceans, seas and marine resources for sustainable development.'
+        },
+        sdgLifeOnLand: {
+          title: 'Life on Land',
+          description: 'Protecting, restoring and promoting sustainable use of terrestrial ecosystems.'
+        },
+        sdgZeroHunger: {
+          title: 'Zero Hunger',
+          description: 'End hunger, achieve food security and improved nutrition and promote sustainable agriculture.'
+        },
+        sdgDecentWork: {
+          title: 'Decent Work and Economic Growth',
+          description: 'Promoting sustained, inclusive and sustainable economic growth, full and productive employment.'
+        },
+        sdgIndustryInnovation: {
+          title: 'Industry, Innovation and Infrastructure',
+          description: 'Building resilient infrastructure, promoting inclusive and sustainable industrialization and fostering innovation.'
         }
       },
       previous: 'Previous',
@@ -232,6 +276,50 @@ export const translations = {
         prPlaybook: {
           title: 'Hİ Oyun Kitabı FRC Baskısı',
           description: 'FRC takımları için eksiksiz bir halkla ilişkiler rehberi, tanıtım, iletişim ve topluluk katılımı stratejileri içerir.'
+        },
+        sdgNoPoverty: {
+          title: 'Yoksulluğa Son',
+          description: 'Her yerde yoksulluğun her türünü sona erdirmek için çözümler ve girişimler.'
+        },
+        sdgQualityEducation: {
+          title: 'Nitelikli Eğitim',
+          description: 'Kapsayıcı ve eşitlikçi nitelikli eğitimi sağlamak ve herkes için yaşam boyu öğrenme fırsatlarını teşvik etmek.'
+        },
+        sdgGoodHealth: {
+          title: 'Sağlıklı Yaşam ve Refah',
+          description: 'Her yaşta herkes için sağlıklı yaşamı ve refahı yenilikçi çözümlerle teşvik etmek.'
+        },
+        sdgGenderEquality: {
+          title: 'Toplumsal Cinsiyet Eşitliği',
+          description: 'STEM alanlarında toplumsal cinsiyet eşitliğini sağlamak ve tüm kadınları ve kızları güçlendirmek.'
+        },
+        sdgAffordableEnergy: {
+          title: 'Erişilebilir ve Temiz Enerji',
+          description: 'Herkes için uygun fiyatlı, güvenilir, sürdürülebilir ve modern enerjiye erişimi sağlamak.'
+        },
+        sdgSustainableCities: {
+          title: 'Sürdürülebilir Şehirler ve Topluluklar',
+          description: 'Şehirleri ve insan yerleşimlerini kapsayıcı, güvenli, dayanıklı ve sürdürülebilir hale getirmek.'
+        },
+        sdgLifeBelowWater: {
+          title: 'Sudaki Yaşam',
+          description: 'Sürdürülebilir kalkınma için okyanusları, denizleri ve deniz kaynaklarını korumak ve sürdürülebilir şekilde kullanmak.'
+        },
+        sdgLifeOnLand: {
+          title: 'Karasal Yaşam',
+          description: 'Karasal ekosistemleri korumak, restore etmek ve sürdürülebilir kullanımını teşvik etmek.'
+        },
+        sdgZeroHunger: {
+          title: 'Açlığa Son',
+          description: 'Açlığı sona erdirmek, gıda güvenliği ve iyileştirilmiş beslenmeyi sağlamak ve sürdürülebilir tarımı teşvik etmek.'
+        },
+        sdgDecentWork: {
+          title: 'İnsana Yakışır İş ve Ekonomik Büyüme',
+          description: 'Sürdürülebilir, kapsayıcı ve sürdürülebilir ekonomik büyümeyi, tam ve üretken istihdamı teşvik etmek.'
+        },
+        sdgIndustryInnovation: {
+          title: 'Sanayi, Yenilik ve Altyapı',
+          description: 'Dayanıklı altyapı inşa etmek, kapsayıcı ve sürdürülebilir sanayileşmeyi teşvik etmek ve yeniliği desteklemek.'
         }
       },
       previous: 'Önceki',
