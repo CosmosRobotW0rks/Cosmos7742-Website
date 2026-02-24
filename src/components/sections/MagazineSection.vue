@@ -67,6 +67,9 @@ import { useI18n } from '@/composables/useI18n'
 // Import PDF files
 const sdgfllMentoringBooklet = 'https://docs.cosmos7742.com/Fll%20Mentoring%20Booklet.pdf'
 const sdgprPlaybook = 'https://docs.cosmos7742.com/PR%20Playbook%20FRC%20Edition%20TR.pdf'
+const sdgftcMentoringBooklet = 'https://docs.cosmos7742.com/FTC%20PR%20Handbook.pdf'
+const howToJoinRoboticsTeam = '/pdf/BİR ROBOTİK TAKIMINA NASIL ÜYE OLUNUR.pdf'
+const ftcPrHandbook = '/pdf/FTC PR Handbook.pdf'
 const sdgNoPoverty = 'https://docs.cosmos7742.com/CosmicScience-NoQuality.pdf'
 const sdgQualityEducation = 'https://docs.cosmos7742.com/CosmicScience-QualityEducation.pdf'
 const sdgGoodHealth = 'https://docs.cosmos7742.com/CosmicScience-GoodHealthAndWellBeing.pdf'
@@ -94,6 +97,18 @@ const mentoringMagazines = computed(() => [
     title: t.value.magazines.magazines.prPlaybook.title,
     description: t.value.magazines.magazines.prPlaybook.description,
     pdfUrl: sdgprPlaybook
+  },
+  {
+    id: 14,
+    title: t.value.magazines.magazines.howToJoinRoboticsTeam.title,
+    description: t.value.magazines.magazines.howToJoinRoboticsTeam.description,
+    pdfUrl: howToJoinRoboticsTeam
+  },
+  {
+    id: 15,
+    title: t.value.magazines.magazines.ftcPrHandbook.title,
+    description: t.value.magazines.magazines.ftcPrHandbook.description,
+    pdfUrl: ftcPrHandbook
   }
 ])
 

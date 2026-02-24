@@ -102,6 +102,14 @@ export const translations = {
           title: 'PR Playbook FRC Edition',
           description: 'A complete public relations guide for FRC teams, featuring strategies for outreach, communication, and community engagement.'
         },
+        howToJoinRoboticsTeam: {
+          title: 'How to Join a Robotics Team',
+          description: 'A comprehensive guide for students interested in joining a robotics team, covering the application process, requirements, and what to expect as a team member.'
+        },
+        ftcPrHandbook: {
+          title: 'FTC PR Handbook',
+          description: 'A complete public relations handbook for FTC teams, featuring strategies for outreach, communication, and community engagement.'
+        },
         sdgNoPoverty: {
           title: 'No Poverty',
           description: 'Exploring solutions and initiatives to end poverty in all its forms everywhere.'
@@ -276,6 +284,14 @@ export const translations = {
         prPlaybook: {
           title: 'Hİ Oyun Kitabı FRC Baskısı',
           description: 'FRC takımları için eksiksiz bir halkla ilişkiler rehberi, tanıtım, iletişim ve topluluk katılımı stratejileri içerir.'
+        },
+        howToJoinRoboticsTeam: {
+          title: 'Bir Robotik Takımına Nasıl Üye Olunur',
+          description: 'Robotik takımına katılmak isteyen öğrenciler için kapsamlı bir rehber, başvuru süreci, gereksinimler ve takım üyesi olarak neler bekleneceğini kapsar.'
+        },
+        ftcPrHandbook: {
+          title: 'FTC Hİ El Kitabı',
+          description: 'FTC takımları için eksiksiz bir halkla ilişkiler el kitabı, tanıtım, iletişim ve topluluk katılımı stratejileri içerir.'
         },
         sdgNoPoverty: {
           title: 'Yoksulluğa Son',
